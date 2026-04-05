@@ -25,7 +25,15 @@ Close the remaining A-series user stories that are currently PARTIAL by completi
   - Screenshot set or screen recording of full walkthrough.
   - Request/response snapshots for key actions.
   - Pass/fail checklist entry.
-- Status: Pending manual UX run.
+- Status: PASS (2026-04-05)
+- Evidence:
+  - `reports/evidence/A-03/a03-login-flow-recording-success.webm`
+  - `reports/evidence/A-03/a03-01-login-page.png`
+  - `reports/evidence/A-03/a03-03-login-before-submit.png`
+  - `reports/evidence/A-03/a03-04-after-submit.png`
+- Notes:
+  - Root cause of prior block: frontend auto-enabled MSW in development, returning mock non-JWT login token and preventing auth state persistence.
+  - Fix applied: MSW now only starts when `VITE_USE_MSW === 'true'`; `.env.local` set to `VITE_USE_MSW=false` and `VITE_API_URL=http://localhost:3001/api`.
 
 ### 2) A-06 — Manual UX verification closure
 - Why it matters: Prevents hidden UX regressions in operational flow.
