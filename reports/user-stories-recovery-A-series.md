@@ -60,9 +60,24 @@ Close the remaining A-series user stories that are currently PARTIAL by completi
 
 ### 3) A-07 — Manual UX verification closure
 - Why it matters: Ensures role/flow behavior remains correct post-remediation.
-- Acceptance criteria: same structure as above.
+- Acceptance criteria:
+  - Tenant maintenance request appears in tenant maintenance feed.
+  - PM queue shows photo count indicator on request card.
+  - PM request detail shows photo gallery with rendered image.
 - Evidence required: same structure as above.
-- Status: Pending manual UX run.
+- Status: PARTIAL (2026-04-05)
+- What passed:
+  - Tenant can see the target request in maintenance feed.
+  - PM queue card shows photo indicator.
+  - PM detail view renders photo gallery for the request.
+- What remains:
+  - Full in-UI tenant creation + photo upload interaction needs direct manual UX execution (current run used API-assisted setup to unblock PM queue/gallery verification).
+- Evidence:
+  - `reports/evidence/A-07/a07-01-tenant-maintenance-list.png`
+  - `reports/evidence/A-07/a07-02-pm-queue.png`
+  - `reports/evidence/A-07/a07-03-pm-detail-photo-gallery.png`
+  - `reports/evidence/A-07/a07-tenant-request-recording.webm`
+  - `reports/evidence/A-07/a07-pm-queue-detail-recording.webm`
 
 ### 4) A-09 — Manual UX verification closure
 - Why it matters: Closes one of the known residual QA risks.
