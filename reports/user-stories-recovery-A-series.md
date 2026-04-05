@@ -129,9 +129,26 @@ Close the remaining A-series user stories that are currently PARTIAL by completi
 
 ### 6) A-11 — Manual UX verification closure
 - Why it matters: Finishes A-series closure and removes remaining partial state.
-- Acceptance criteria: same structure as above.
+- Acceptance criteria:
+  - Mobile viewport inspection detail supports in-progress draft edits.
+  - Draft persists to localStorage under `tenant-inspection-draft:<inspectionId>`.
+  - Reload restores draft values and shows restore notice banner.
+  - Dismiss action removes the notice banner from view.
 - Evidence required: same structure as above.
-- Status: Pending manual UX run.
+- Status: PASS (2026-04-05)
+- What passed:
+  - Mobile (iPhone viewport) draft edits captured for condition + notes (+ photo draft fields when available).
+  - localStorage draft persisted and restored after reload.
+  - Restore notice displayed and dismissed successfully.
+- Evidence:
+  - `reports/evidence/A-11/a11-mobile-draft-restore-recording.webm`
+  - `reports/evidence/A-11/a11-01-mobile-detail-initial.png`
+  - `reports/evidence/A-11/a11-02-mobile-draft-filled.png`
+  - `reports/evidence/A-11/a11-03-mobile-after-reload.png`
+  - `reports/evidence/A-11/a11-04-mobile-dismissed-notice.png`
+- Data checks:
+  - requestId=1, inspectionId=5
+  - `hasStoredDraft=true`, `hasRestoreNotice=true`, `restoredCondition=GOOD`, `restoredNoteMatches=true`.
 
 ---
 
