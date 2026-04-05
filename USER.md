@@ -10,8 +10,8 @@ _Learn about the person you're helping. Update this as you go._
 
 - **Name:** Jordan
 - **What to call them:** Jordan
-- **Timezone:** America/Chicago (GMT-6, Wichita KS)
-- **Notes:** Located in Wichita, Kansas
+- **Timezone:** America/Chicago (US Central, Wichita KS)
+- **Notes:** Located in Wichita, Kansas. Prefers daily property-pulse operations reporting at 8:00 PM US Central.
 
 ## Context
 
