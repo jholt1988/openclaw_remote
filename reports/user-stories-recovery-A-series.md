@@ -87,20 +87,21 @@ Close the remaining A-series user stories that are currently PARTIAL by completi
   - Attachment URLs can be sent and rendered in conversation UI.
   - Audit trail captures attachment metadata for sent message.
 - Evidence required: same structure as above.
-- Status: PARTIAL (2026-04-05)
+- Status: PASS (2026-04-05)
 - What passed:
   - Tenant created/sent thread message with attachment URL from messaging UI.
   - Tenant thread UI renders `Attachment 1` link.
-  - Backend audit log includes `MESSAGE_SENT` event with `hasAttachments=true`, `attachmentCount=1`, and URL metadata.
-- What remains:
-  - PM inbox did not surface the new thread in current UI session during automation run; PM-side attachment rendering in UI remains unverified.
+  - PM inbox now surfaces new tenant thread; PM thread view renders sent message + `Attachment 1` link.
+  - Attachment metadata is persisted on message record (`metadata.attachments`) for auditability.
+- Fix applied:
+  - Backend messaging visibility fix: conversation listing and participant checks now rely on explicit conversation participation (removed org-scope overfilter that hid valid participant threads).
 - Evidence:
-  - `reports/evidence/A-09/a09-tenant-thread-attachment-recording.webm`
-  - `reports/evidence/A-09/a09-pm-inbox-recording.webm`
+  - `reports/evidence/A-09/a09-tenant-thread-attachment-recording-success.webm`
+  - `reports/evidence/A-09/a09-pm-thread-attachment-recording-success.webm`
   - `reports/evidence/A-09/a09-01-tenant-sent-with-attachment.png`
   - `reports/evidence/A-09/a09-02-pm-thread-with-attachment.png`
-- Audit evidence (backend log):
-  - `AuditLogService` entry at `2026-04-05T04:42:11.722Z` with module `MESSAGING`, action `MESSAGE_SENT`, metadata showing attachment fields.
+- Data evidence:
+  - Message `id=14`, `conversationId=8` contains `metadata.attachments=["https://example.com/a09-attachment.png"]`.
 
 ### 5) A-10 — Manual UX verification closure
 - Why it matters: Completes user-visible validation for previously remediated backend path.
