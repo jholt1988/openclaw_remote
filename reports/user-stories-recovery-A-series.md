@@ -105,9 +105,27 @@ Close the remaining A-series user stories that are currently PARTIAL by completi
 
 ### 5) A-10 — Manual UX verification closure
 - Why it matters: Completes user-visible validation for previously remediated backend path.
-- Acceptance criteria: same structure as above.
+- Acceptance criteria:
+  - Owner can view maintenance records and request detail.
+  - Owner can add note/comment to request.
+  - Owner can create request only when `propertyId` is provided.
+  - Owner is blocked from status change.
+  - Owner is blocked from technician assignment.
 - Evidence required: same structure as above.
-- Status: Pending manual UX run.
+- Status: PASS (2026-04-05)
+- What passed:
+  - Owner read-path in maintenance list/detail verified.
+  - Owner note/comment add verified.
+  - `propertyId` required enforcement verified (400 when absent).
+  - Owner status-change block verified (403).
+  - Owner technician-assignment block verified (403).
+- Evidence:
+  - `reports/evidence/A-10/a10-owner-portal-verification-recording.webm`
+  - `reports/evidence/A-10/a10-01-owner-maintenance-list.png`
+  - `reports/evidence/A-10/a10-02-owner-request-detail.png`
+  - `reports/evidence/A-10/A10-results.md`
+- Notes:
+  - Runtime owner behavior is enforced via org role guard (`OrgRole.OWNER`) even though seeded owner account role label is `ADMIN` in current dataset.
 
 ### 6) A-11 — Manual UX verification closure
 - Why it matters: Finishes A-series closure and removes remaining partial state.
