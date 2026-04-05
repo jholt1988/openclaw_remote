@@ -37,9 +37,28 @@ Close the remaining A-series user stories that are currently PARTIAL by completi
 
 ### 2) A-06 — Manual UX verification closure
 - Why it matters: Prevents hidden UX regressions in operational flow.
-- Acceptance criteria: same structure as above.
+- Acceptance criteria:
+  - PM can access Lease Management and reach assign flow UI.
+  - Tenant can view active lease details in My Lease.
+  - Tenant can see lease-linked document visibility path.
 - Evidence required: same structure as above.
-- Status: Pending manual UX run.
+- Status: PARTIAL (2026-04-05)
+- What passed:
+  - PM login and Lease Management assign flow UI verified.
+  - Tenant login and active lease visibility verified in My Lease.
+- What failed / blocked:
+  - Tenant lease-linked document visibility not surfaced in current My Lease UI.
+  - `/documents` route is role-blocked for TENANT (redirects to `/unauthorized`).
+- Evidence:
+  - `reports/evidence/A-06/a06-pm-flow-recording.webm`
+  - `reports/evidence/A-06/a06-tenant-flow-recording.webm`
+  - `reports/evidence/A-06/a06-01-pm-dashboard.png`
+  - `reports/evidence/A-06/a06-02-pm-lease-management.png`
+  - `reports/evidence/A-06/a06-03-tenant-dashboard.png`
+  - `reports/evidence/A-06/a06-04-tenant-my-lease.png`
+  - `reports/evidence/A-06/a06-05-tenant-documents-page.png`
+- Notes:
+  - Seeded test lease document records in backend for verification (`Document` + `LeaseDocument`), but tenant-facing UI path for lease-linked docs is currently missing/blocked.
 
 ### 3) A-07 — Manual UX verification closure
 - Why it matters: Ensures role/flow behavior remains correct post-remediation.
