@@ -30,5 +30,16 @@ Primary next implementation queue:
 Status:
 - tenant workspace todo run is complete for the currently approved scope
 
+Follow-on tenant test expansion:
+- [x] Added backend contract/unit coverage for tenant messaging, inspections, autopay, and feed controller/service seams
+- [x] Added tenant backend e2e contract specs for:
+  - `test/messaging-threads.e2e.spec.ts`
+  - `test/inspections-list-contract.e2e.spec.ts`
+  - `test/tenant-feed.e2e.spec.ts`
+  - `test/billing-autopay.e2e.spec.ts`
+  - strengthened `test/dashboard.e2e.spec.ts`
+- [!] E2E execution is environment-blocked in this session because `test/jest-e2e.json` expects Postgres on `127.0.0.1:5432` and the DB was not reachable here
+- [x] Stop point respected: did not open the next workspace lane beyond tenant-facing contract coverage
+
 Reference report:
 - `reports/KEYRING_OS_TENANT_WORKSPACE_CONTRACT_MATRIX_2026-04-13.md`
