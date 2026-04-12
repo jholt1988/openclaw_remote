@@ -59,6 +59,7 @@ Old generic façade assumption:
 Status:
 - removed from active module wiring
 - no longer used by frontend admin feed actions
+- deleted from backend source during cleanup because the module no longer referenced it
 
 Reason:
 - it mixed heterogeneous business actions into a fake feed-owned command router
@@ -79,7 +80,7 @@ Frontend should execute mutation actions as follows:
 
 ## Follow-up recommendation
 
-Next cleanup pass should:
-1. add UI toast/error handling for unsupported direct mappings
-2. remove stale mock-feed mutation intents that do not correspond to real backend owners
-3. add contract tests around the new payments-by-payment mutation routes
+Cleanup status after final pass:
+1. unsupported mutation intents already fail explicitly in the frontend server action mapper
+2. stale mock-feed mutation intents were removed or downgraded to navigation-only actions
+3. contract tests exist for the stabilized feed-action execution surface; full suite validation should still be run in a dependency-installed environment
