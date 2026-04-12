@@ -1,0 +1,6 @@
+[submodule "keyring-os"]
+	path = keyring-os
+	url = https://github.com/jholt1988/keyring-os.git
+[submodule "pms-master"]
+	path = pms-master
+	url = https://github.com/jholt1988/pms-master.git
