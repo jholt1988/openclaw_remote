@@ -6,6 +6,11 @@ read_when:
 
 # HEARTBEAT.md
 
-# Keep this file empty (or with only comments) to skip heartbeat API calls.
+Use the Self-Improving Proactive Agent skill:
+- recover session state from `~/proactivity/session-state.md`
+- re-check promises, blockers, and prepared next moves
+- surface recommendations only when something changed
+- stay quiet when signal is weak or nothing drifted
+- do maintenance sweeps on self-improving memory without spamming
 
-# Add tasks below when you want the agent to check something periodically.
+See `~/proactivity/heartbeat.md` for lightweight recurring tasks.

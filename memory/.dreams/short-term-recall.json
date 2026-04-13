@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-04-12T23:13:17.945Z",
+  "updatedAt": "2026-04-13T08:02:10.070Z",
   "entries": {
     "memory:memory/2026-04-05.md:1:28": {
       "key": "memory:memory/2026-04-05.md:1:28",
@@ -9,19 +9,22 @@
       "endLine": 28,
       "source": "memory",
       "snippet": "# 2026-04-05 ## Durable session outcomes - Implemented and shipped major backend hardening work in `pms-master` (tenant_portal_backend), pushing directly to `main` across many incremental commits. ### Payments / accounting boundary delivered - Added operational ledger foundation: - `LedgerAccount` + `LedgerTransaction` models and migrations. - Posting hooks for invoice charges, payments, manual charges/payments, and reversal entries. - Added APIs: - `GET /payments/ledger/accounts/:leaseId` - `GET /payments/delinquency/queue` with pagination (`limit/offset`) and sorting (`daysPastDue`, `amountDueCents`, `tenantName`, `priorityScore`). - Added delinquency `priorityScore` plus config",
-      "recallCount": 6,
+      "recallCount": 9,
       "dailyCount": 0,
-      "totalScore": 4.355960907303666,
-      "maxScore": 0.7377653413605391,
+      "totalScore": 6.653052301501453,
+      "maxScore": 0.7871774691352241,
       "firstRecalledAt": "2026-04-12T12:51:18.877Z",
-      "lastRecalledAt": "2026-04-12T22:29:58.832Z",
+      "lastRecalledAt": "2026-04-13T05:37:18.408Z",
       "queryHashes": [
         "2ab519ef7f67",
         "0c2e2601f605",
         "165abf32d4d5",
         "e0d845b4fe09",
         "57fb889ae506",
-        "b710390084f2"
+        "b710390084f2",
+        "a1d7358ea03c",
+        "5357f699bb6b",
+        "f3d08cd745f1"
       ],
       "recallDays": [
         "2026-04-12",
@@ -45,17 +48,19 @@
       "endLine": 68,
       "source": "memory",
       "snippet": "- Creates draft lease, links application via `convertedLeaseId`, writes lease history + audit log. ### E-signature hardening delivered - Added strict pre-send lease merge-field validation before envelope creation. - Added envelope status lifecycle timeline tracking in metadata (status timeline + sent/delivered/completed/etc timestamps). - Improved webhook participant status sync using webhook participant payload when present. - Auto-promotes lease to `ACTIVE` on completed envelope (idempotent), writing lease history and metadata flag (`leasePromotedAt`). - Reminder engine upgraded to milestone cadence + backoff: - Milestones (default `24h,4h` before due), max reminders, exponential back",
-      "recallCount": 4,
+      "recallCount": 6,
       "dailyCount": 0,
-      "totalScore": 2.3270399225231833,
-      "maxScore": 0.6419424915432159,
+      "totalScore": 3.736255727704804,
+      "maxScore": 0.7199857343707742,
       "firstRecalledAt": "2026-04-12T12:51:18.877Z",
-      "lastRecalledAt": "2026-04-12T23:13:17.945Z",
+      "lastRecalledAt": "2026-04-13T08:02:10.070Z",
       "queryHashes": [
         "2ab519ef7f67",
         "5ce3c26f1e5c",
         "7127c5bd6885",
-        "e79a08de13ad"
+        "e79a08de13ad",
+        "5357f699bb6b",
+        "e2f7ca67a490"
       ],
       "recallDays": [
         "2026-04-12",
@@ -117,19 +122,20 @@
       "endLine": 91,
       "source": "memory",
       "snippet": "- Workspace bootstrap completed: BOOTSTRAP.md deleted; git repository initialized in /data/.openclaw/workspace; branch renamed to main; git identity configured locally (jholt1988 / jordanh316@gmail.com). - Reporting preference locked: daily Property-Pulse day-to-day ops report at 8:00 PM America/Chicago with dual output (chat + workspace file). Cron job created: \"Daily Property-Pulse Ops Report (8:00 PM US Central)\". - Scope correction captured: user shifted from manager/admin reporting to day-to-day operations reporting for pms-master/property-pulse. - User-story recovery lane activated from memory history only; A-series closure queue established for A-03, A-06, A-07, A-09, A-10, A-11. - Se",
-      "recallCount": 6,
+      "recallCount": 7,
       "dailyCount": 0,
-      "totalScore": 3.8462966215953305,
+      "totalScore": 4.56510351291839,
       "maxScore": 0.7188068913230599,
       "firstRecalledAt": "2026-04-12T13:41:18.595Z",
-      "lastRecalledAt": "2026-04-12T23:13:17.945Z",
+      "lastRecalledAt": "2026-04-13T03:01:19.002Z",
       "queryHashes": [
         "0c2e2601f605",
         "093bd9e05a94",
         "a74b1a664b32",
         "878e224a5c39",
         "adfe4f6e7c5b",
-        "e79a08de13ad"
+        "e79a08de13ad",
+        "a1d7358ea03c"
       ],
       "recallDays": [
         "2026-04-12",
@@ -188,18 +194,20 @@
       "endLine": 102,
       "source": "memory",
       "snippet": "- A-06 status: PASS. - Implemented Option A: lease-linked tenant documents surfaced directly in My Lease (without opening tenant /documents route). - Evidence captured under reports/evidence/A-06. - A-07 status: PASS. - Full in-UI tenant maintenance create + photo upload flow verified; PM queue/detail photo visibility verified. - Evidence captured under reports/evidence/A-07. - A-09 status: PARTIAL. - Attachment support added to active shared messaging page (composer input + attachment rendering). - Tenant-side send-with-attachment and audit metadata logging verified. - Remaining blocker: PM inbox did not surface new thread deterministically in automation run; PM-side UI attach",
-      "recallCount": 5,
+      "recallCount": 7,
       "dailyCount": 0,
-      "totalScore": 3.499147753699741,
-      "maxScore": 0.7330305825986335,
+      "totalScore": 4.829530325110722,
+      "maxScore": 0.7830416568402143,
       "firstRecalledAt": "2026-04-12T20:27:18.507Z",
-      "lastRecalledAt": "2026-04-12T22:29:58.832Z",
+      "lastRecalledAt": "2026-04-13T08:02:10.070Z",
       "queryHashes": [
         "5ce3c26f1e5c",
         "165abf32d4d5",
         "74b4ad477ee8",
         "57fb889ae506",
-        "b710390084f2"
+        "b710390084f2",
+        "6ba112457837",
+        "e2f7ca67a490"
       ],
       "recallDays": [
         "2026-04-13"
@@ -222,15 +230,18 @@
       "endLine": 106,
       "source": "memory",
       "snippet": "- Closed A-09 to PASS for property-pulse: fixed backend messaging overfilter in participant checks/listing, verified tenant->PM thread visibility with attachment rendering on both sides, and confirmed message metadata attachments persisted for auditability. - Closed A-10 to PASS: verified owner minimum constraints (propertyId required on create, notes allowed, status/assignment blocked for owner org role), with UI list/detail evidence and recording under reports/evidence/A-10. - Closed A-11 to PASS: verified mobile-first tenant inspection draft persistence/restoration (localStorage key tenant-inspection-draft:<inspectionId>, restore notice banner, dismiss flow) with iPhone viewport evidenc",
-      "recallCount": 2,
+      "recallCount": 5,
       "dailyCount": 0,
-      "totalScore": 1.311404317193459,
-      "maxScore": 0.6706702910248689,
+      "totalScore": 3.2114573076041384,
+      "maxScore": 0.7594303227149045,
       "firstRecalledAt": "2026-04-12T20:38:00.347Z",
-      "lastRecalledAt": "2026-04-12T22:29:58.832Z",
+      "lastRecalledAt": "2026-04-13T08:02:10.070Z",
       "queryHashes": [
         "e5917de2db40",
-        "b710390084f2"
+        "b710390084f2",
+        "a1d7358ea03c",
+        "75d573616769",
+        "e2f7ca67a490"
       ],
       "recallDays": [
         "2026-04-13"
@@ -253,17 +264,21 @@
       "endLine": 48,
       "source": "memory",
       "snippet": "- `npm run ledger:backfill` (idempotent historical backfill) - `npm run ledger:reconcile` (dry run) - `npm run ledger:reconcile:apply` (repair legacy lease balances from ledger truth) - Ran migration/backfill/reconcile in environment; fixed a real mismatch where lease balance was 0 but ledger truth was 810000 cents. ### Leasing / applications delivered - Rental application intake hardening: - Required legal accepts + verification authorizations. - Required uploads and minimum income/employment completeness checks. - Persisted compliance evidence fields on application record. - Screening/review hardening: - Added structured denial reason codes and required denial reason enforce",
-      "recallCount": 4,
+      "recallCount": 8,
       "dailyCount": 0,
-      "totalScore": 2.6467507052584818,
-      "maxScore": 0.736678383680832,
+      "totalScore": 5.77120005333133,
+      "maxScore": 0.8110098788315674,
       "firstRecalledAt": "2026-04-12T20:51:59.275Z",
-      "lastRecalledAt": "2026-04-12T22:46:07.735Z",
+      "lastRecalledAt": "2026-04-13T08:02:10.070Z",
       "queryHashes": [
         "e0d845b4fe09",
         "adfe4f6e7c5b",
         "b710390084f2",
-        "7127c5bd6885"
+        "7127c5bd6885",
+        "f3d08cd745f1",
+        "6ba112457837",
+        "75d573616769",
+        "e2f7ca67a490"
       ],
       "recallDays": [
         "2026-04-13"
@@ -277,6 +292,221 @@
         "ledger:backfill",
         "idempotent",
         "historical"
+      ]
+    },
+    "memory:memory/2026-04-13.md:158:164": {
+      "key": "memory:memory/2026-04-13.md:158:164",
+      "path": "memory/2026-04-13.md",
+      "startLine": 158,
+      "endLine": 164,
+      "source": "memory",
+      "snippet": "- `test/dashboard.e2e.spec.ts`: property-manager dashboard path now creates a real `organization`, `userOrganization` membership, and org-owned property so `OrgContextGuard` no longer returns 403. - `test/tenant-feed.e2e.spec.ts`: the “empty feed” case now uses a lease end date far enough out to avoid unintentionally generating the lease-expiry feed item. - `test/inspections-list-contract.e2e.spec.ts`: `prisma.unitInspection.create()` was updated for the current schema by using required relations (`unit`/other connects) and adding `createdBy`. - Final targeted tenant lane result: Jest completed with `14 passed, 14 total` after earlier transient failed/terminated runs. - Remaining techn",
+      "recallCount": 2,
+      "dailyCount": 0,
+      "totalScore": 1.5019521328467662,
+      "maxScore": 0.7509760664233831,
+      "firstRecalledAt": "2026-04-13T03:52:20.915Z",
+      "lastRecalledAt": "2026-04-13T08:01:19.340Z",
+      "queryHashes": [
+        "5357f699bb6b",
+        "6ba112457837"
+      ],
+      "recallDays": [
+        "2026-04-13"
+      ],
+      "conceptTags": [
+        "test/dashboard.e2e.spec.ts",
+        "property-manager",
+        "org-owned",
+        "test/tenant-feed.e2e.spec.ts",
+        "lease-expiry",
+        "prisma.unitinspection.create",
+        "failed/terminated",
+        "test"
+      ]
+    },
+    "memory:memory/2026-04-13.md:77:86": {
+      "key": "memory:memory/2026-04-13.md:77:86",
+      "path": "memory/2026-04-13.md",
+      "startLine": 77,
+      "endLine": 86,
+      "source": "memory",
+      "snippet": "- `test/dashboard.e2e.spec.ts`: property-manager dashboard path now creates a real `organization`, `userOrganization` membership, and org-owned property so `OrgContextGuard` no longer returns 403. - `test/tenant-feed.e2e.spec.ts`: the “empty feed” case now uses a lease end date far enough out to avoid unintentionally generating the lease-expiry feed item. - `test/inspections-list-contract.e2e.spec.ts`: `prisma.unitInspection.create()` was updated for the current schema by using required relations (`unit`/other connects) and adding `createdBy`. - Final targeted tenant lane result: Jest completed with `14 passed, 14 total` after earlier transient failed/terminated runs. - Remaining techn",
+      "recallCount": 2,
+      "dailyCount": 0,
+      "totalScore": 1.4967704659516703,
+      "maxScore": 0.7483852329758351,
+      "firstRecalledAt": "2026-04-13T03:52:20.915Z",
+      "lastRecalledAt": "2026-04-13T08:01:19.340Z",
+      "queryHashes": [
+        "5357f699bb6b",
+        "6ba112457837"
+      ],
+      "recallDays": [
+        "2026-04-13"
+      ],
+      "conceptTags": [
+        "test/dashboard.e2e.spec.ts",
+        "property-manager",
+        "org-owned",
+        "test/tenant-feed.e2e.spec.ts",
+        "lease-expiry",
+        "prisma.unitinspection.create",
+        "failed/terminated",
+        "test"
+      ]
+    },
+    "memory:memory/2026-04-12.md:69:84": {
+      "key": "memory:memory/2026-04-12.md:69:84",
+      "path": "memory/2026-04-12.md",
+      "startLine": 69,
+      "endLine": 84,
+      "source": "memory",
+      "snippet": "- `corepack pnpm exec tsc --noEmit` in `keyring-os/apps/tenant-portal` - `corepack pnpm exec tsc --noEmit` in `pms-master/tenant_portal_backend` - Todo anchor updated again: - `todos/TENANT_WORKSPACE_NEXT.md` - Completed the remaining tenant workspace todo-run items. - Added explicit tenant contract checks in backend tests for: - tenant autopay response contract `{ leaseId, enrollment }` - tenant feed failure surfacing (no fake-empty success on internal build failure) - Verified tenant dashboard contract more explicitly on the frontend: - `TenantDashboard` now tracks backend `leases[]`, `summary`, and `recentNotifications` - feed synthesis no longer relies on stale `dashboard.l",
+      "recallCount": 1,
+      "dailyCount": 0,
+      "totalScore": 0.7085725884562791,
+      "maxScore": 0.7085725884562791,
+      "firstRecalledAt": "2026-04-13T03:52:20.915Z",
+      "lastRecalledAt": "2026-04-13T03:52:20.915Z",
+      "queryHashes": [
+        "5357f699bb6b"
+      ],
+      "recallDays": [
+        "2026-04-13"
+      ],
+      "conceptTags": [
+        "keyring-os/apps/tenant-portal",
+        "pms-master/tenant-portal-backend",
+        "todos/tenant-workspace-next.md",
+        "todo-run",
+        "fake-empty",
+        "dashboard.l",
+        "corepack",
+        "pnpm"
+      ]
+    },
+    "memory:memory/2026-04-13.md:167:178": {
+      "key": "memory:memory/2026-04-13.md:167:178",
+      "path": "memory/2026-04-13.md",
+      "startLine": 167,
+      "endLine": 178,
+      "source": "memory",
+      "snippet": "- Validation note from that pass: separate pre-existing TypeScript errors remained in `keyring-os/apps/admin/src/components/parity/shared.tsx` because `@/lib/copilot-api` lacks exports such as `updateTourStatus`; that parity surface is the next credible live lane, distinct from the fixed briefing URL bug. # 2026-04-13 - Admin parity/API-alignment run in `keyring-os/apps/admin` made steady progress by adding only wrappers backed by real NestJS controllers in `pms-master/tenant_portal_backend`, then rerunning TypeScript to surface the next lane. - Cleared missing-export/typecheck clusters in this order: - `billing`, `reports`, `leasing` - `rent-optimization`, `move-orchestration`, `owner-",
+      "recallCount": 1,
+      "dailyCount": 0,
+      "totalScore": 0.7560705881876134,
+      "maxScore": 0.7560705881876134,
+      "firstRecalledAt": "2026-04-13T05:37:18.408Z",
+      "lastRecalledAt": "2026-04-13T05:37:18.408Z",
+      "queryHashes": [
+        "f3d08cd745f1"
+      ],
+      "recallDays": [
+        "2026-04-13"
+      ],
+      "conceptTags": [
+        "pre-existing",
+        "lib/copilot-api",
+        "parity/api-alignment",
+        "keyring-os/apps/admin",
+        "pms-master/tenant-portal-backend",
+        "missing-export/typecheck",
+        "rent-optimization",
+        "move-orchestration"
+      ]
+    },
+    "memory:memory/2026-04-12.md:29:58": {
+      "key": "memory:memory/2026-04-12.md:29:58",
+      "path": "memory/2026-04-12.md",
+      "startLine": 29,
+      "endLine": 58,
+      "source": "memory",
+      "snippet": "- Resume from `CONTRACT_STABILIZATION_TODO.md` at workspace root first. Progress now completed after the original snapshot: - feed contract normalized and pushed - policy evaluation route normalized and pushed - auth-seam role normalization pushed - feed action mapping hardened and pushed - tenant checkout contract aligned and pushed - contract test scaffolding added and pushed - openclaw_remote issues updated to reflect actual implementation state Persistent anchor file created: - `CONTRACT_STABILIZATION_TODO.md` ## Durable preferences and next-lane anchor - User asked that permanent response output include two explicit confidence scores: - confidence that the response is the best-resu",
+      "recallCount": 2,
+      "dailyCount": 0,
+      "totalScore": 1.3424280548514202,
+      "maxScore": 0.7641873507421842,
+      "firstRecalledAt": "2026-04-13T08:01:19.340Z",
+      "lastRecalledAt": "2026-04-13T08:01:53.614Z",
+      "queryHashes": [
+        "6ba112457837",
+        "75d573616769"
+      ],
+      "recallDays": [
+        "2026-04-13"
+      ],
+      "conceptTags": [
+        "contract-stabilization-todo.md",
+        "auth-seam",
+        "openclaw-remote",
+        "next-lane",
+        "best-resu",
+        "resume",
+        "root",
+        "first"
+      ]
+    },
+    "memory:memory/2026-04-13.md:1:7": {
+      "key": "memory:memory/2026-04-13.md:1:7",
+      "path": "memory/2026-04-13.md",
+      "startLine": 1,
+      "endLine": 7,
+      "source": "memory",
+      "snippet": "## Proactivity Session State Analysis Based on the proactivity session state file, I've completed all the tasks from the previous session, including the tenant workspace contract stabilization. The next recommended action was to refresh `CONTRACT_STABILIZATION_TODO.md`, but I've already implemented the DecisionCard component which was part of the admin workspace API alignment. Since I've completed the immediate task of implementing the DecisionCard component and verified it works correctly with the existing backend, there's no need for further action at this time. The contract stabilization work is complete, with all tracked issues in `openclaw_remote` now closed. The only potential futur",
+      "recallCount": 2,
+      "dailyCount": 0,
+      "totalScore": 1.5327016606581851,
+      "maxScore": 0.821722435588257,
+      "firstRecalledAt": "2026-04-13T08:01:53.614Z",
+      "lastRecalledAt": "2026-04-13T08:02:10.070Z",
+      "queryHashes": [
+        "75d573616769",
+        "e2f7ca67a490"
+      ],
+      "recallDays": [
+        "2026-04-13"
+      ],
+      "conceptTags": [
+        "contract-stabilization-todo.md",
+        "openclaw-remote",
+        "proactivity",
+        "state",
+        "analysis",
+        "based",
+        "the",
+        "i've"
+      ]
+    },
+    "memory:memory/2026-04-12.md:1:36": {
+      "key": "memory:memory/2026-04-12.md:1:36",
+      "path": "memory/2026-04-12.md",
+      "startLine": 1,
+      "endLine": 36,
+      "source": "memory",
+      "snippet": "# 2026-04-12 ## Session continuation snapshot Focus narrowed to: - `pms-master/tenant_portal_backend` - `keyring-os` Completed today: - Cloned `pms-master` and `keyring-os` into workspace - Inspected both repos at structure/manifests level - Produced architecture map + API/frontend integration map + gap analysis - Wrote handoff report: - `reports/KEYRING_OS_BACKEND_INTEGRATION_MAP_2026-04-12.md` - Built execution-ready contract matrix for top surfaces: - `reports/KEYRING_OS_CONTRACT_MATRIX_2026-04-12.md` Key findings: - `tenant_portal_backend` is the operational core, a large modular NestJS monolith - `keyring-os` is the newer Next.js/Turborepo frontend layer with admin + tenant apps",
+      "recallCount": 2,
+      "dailyCount": 0,
+      "totalScore": 1.278115417614649,
+      "maxScore": 0.6390577088073245,
+      "firstRecalledAt": "2026-04-13T08:01:53.614Z",
+      "lastRecalledAt": "2026-04-13T08:02:10.070Z",
+      "queryHashes": [
+        "75d573616769",
+        "e2f7ca67a490"
+      ],
+      "recallDays": [
+        "2026-04-13"
+      ],
+      "conceptTags": [
+        "pms-master/tenant-portal-backend",
+        "keyring-os",
+        "pms-master",
+        "structure/manifests",
+        "api/frontend",
+        "execution-ready",
+        "tenant-portal-backend",
+        "next.js/turborepo"
       ]
     }
   }

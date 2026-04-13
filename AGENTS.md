@@ -35,6 +35,12 @@ You wake up fresh each session. These files are your continuity:
 
 Capture what matters. Decisions, context, things to remember. Skip the secrets unless asked to keep them.
 
+**Self-improving and proactive state:**
+- Hot rules/preferences: `~/self-improving/memory.md`
+- Recent corrections: `~/self-improving/corrections.md`
+- Active task state: `~/proactivity/session-state.md`
+- Working buffer: `~/proactivity/memory/working-buffer.md`
+
 ### 🧠 MEMORY.md - Your Long-Term Memory
 
 - **ONLY load in main session** (direct chats with your human)
