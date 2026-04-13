@@ -1,6 +1,6 @@
 # Contract Stabilization Todo Anchor
 
-Last updated: 2026-04-12 22:17 GMT+8
+Last updated: 2026-04-13 11:23 GMT+8
 
 ## Project
 Stabilize the integration contract between:
@@ -127,10 +127,9 @@ Closed:
 - `#6` Implement canonical feed action mutation path or remove dead frontend assumption
 
 Still open, with progress notes:
-- `#4` Define canonical role enum and serialization strategy
-- `#3` Normalize frontend role usage, mock auth headers, and fixtures
-- `#2` Normalize backend role guards and ingress role parsing
-- `#7` Inventory and classify all admin feed actions
+- none
+
+All tracked contract-stabilization issues in `openclaw_remote` are now closed after the latest push and re-check.
 
 ## Remaining todo
 ### Highest priority
@@ -146,7 +145,7 @@ Still open, with progress notes:
 ### Validation / cleanup
 - [x] Run the strongest local validation available in a dependency-installed environment
 - [x] Confirm no remaining live callers depend on removed/drifting routes
-- [ ] Re-check `openclaw_remote` issues after the next implementation pass / push
+- [x] Re-check `openclaw_remote` issues after the next implementation pass / push
 
 ## Validation completed in this pass
 - `keyring-os/packages/types`: `corepack pnpm --dir /data/.openclaw/workspace/keyring-os/packages/types typecheck`
@@ -158,13 +157,19 @@ Still open, with progress notes:
 ## Current known limitation
 The strongest targeted validations now pass locally. A full monorepo-wide test sweep was still not run because it is materially broader than the stabilized contract surface.
 
+A broader backend validation pass was run afterward:
+- `tenant_portal_backend` TypeScript build passes cleanly
+- repo-wide backend lint now has `0 errors` and `214 warnings`
+- `keyring-os` workspace-wide `pnpm typecheck` is still environment-blocked by Turbo package-manager binary resolution, so that pass did not yet prove or disprove repo-wide frontend type health
+
 ## Current repo heads
-- `openclaw_remote@341c24a`
-- `keyring-os@490e193`
-- `pms-master@218143e`
+- `openclaw_remote@6a4cdb6`
+- `keyring-os@e4ad999`
+- `pms-master@1e930e1`
 
 ## Notes for future continuation
 If context compacts, resume from this file first.
 Recommended next active task:
-1. push the final repo set and let the outer-repo issue-closing commit close the remaining role/inventory issues
-2. if desired afterward, run broader monorepo validation outside the stabilized contract slice
+1. decide whether to reduce backend warning debt after the lint-error cleanup pass
+2. or unblock a stronger repo-wide `keyring-os` validation path outside the Turbo environment issue
+3. if continuing implementation, refresh this anchor again at the next natural barrier
