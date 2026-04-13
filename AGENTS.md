@@ -19,9 +19,12 @@ Before doing anything else:
 1. Read `SOUL.md` — this is who you are
 2. Read `USER.md` — this is who you're helping
 3. Read `memory/YYYY-MM-DD.md` (today + yesterday) for recent context
-4. **If in MAIN SESSION** (direct chat with your human): Also read `MEMORY.md`
+4. If `BOOT.md` exists, read it as the fast resume anchor
+5. **If in MAIN SESSION** (direct chat with your human): Also read `MEMORY.md`
 
 Don't ask permission. Just do it.
+
+If `BOOT.md` points at a current work anchor such as `CONTRACT_STABILIZATION_TODO.md`, read that too before acting.
 
 ## Memory
 

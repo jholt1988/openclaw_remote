@@ -1,0 +1,283 @@
+{
+  "version": 1,
+  "updatedAt": "2026-04-12T23:13:17.945Z",
+  "entries": {
+    "memory:memory/2026-04-05.md:1:28": {
+      "key": "memory:memory/2026-04-05.md:1:28",
+      "path": "memory/2026-04-05.md",
+      "startLine": 1,
+      "endLine": 28,
+      "source": "memory",
+      "snippet": "# 2026-04-05 ## Durable session outcomes - Implemented and shipped major backend hardening work in `pms-master` (tenant_portal_backend), pushing directly to `main` across many incremental commits. ### Payments / accounting boundary delivered - Added operational ledger foundation: - `LedgerAccount` + `LedgerTransaction` models and migrations. - Posting hooks for invoice charges, payments, manual charges/payments, and reversal entries. - Added APIs: - `GET /payments/ledger/accounts/:leaseId` - `GET /payments/delinquency/queue` with pagination (`limit/offset`) and sorting (`daysPastDue`, `amountDueCents`, `tenantName`, `priorityScore`). - Added delinquency `priorityScore` plus config",
+      "recallCount": 6,
+      "dailyCount": 0,
+      "totalScore": 4.355960907303666,
+      "maxScore": 0.7377653413605391,
+      "firstRecalledAt": "2026-04-12T12:51:18.877Z",
+      "lastRecalledAt": "2026-04-12T22:29:58.832Z",
+      "queryHashes": [
+        "2ab519ef7f67",
+        "0c2e2601f605",
+        "165abf32d4d5",
+        "e0d845b4fe09",
+        "57fb889ae506",
+        "b710390084f2"
+      ],
+      "recallDays": [
+        "2026-04-12",
+        "2026-04-13"
+      ],
+      "conceptTags": [
+        "pms-master",
+        "tenant-portal-backend",
+        "charges/payments",
+        "payments/ledger/accounts",
+        "payments/delinquency/queue",
+        "limit/offset",
+        "durable",
+        "outcomes"
+      ]
+    },
+    "memory:memory/2026-04-05.md:44:68": {
+      "key": "memory:memory/2026-04-05.md:44:68",
+      "path": "memory/2026-04-05.md",
+      "startLine": 44,
+      "endLine": 68,
+      "source": "memory",
+      "snippet": "- Creates draft lease, links application via `convertedLeaseId`, writes lease history + audit log. ### E-signature hardening delivered - Added strict pre-send lease merge-field validation before envelope creation. - Added envelope status lifecycle timeline tracking in metadata (status timeline + sent/delivered/completed/etc timestamps). - Improved webhook participant status sync using webhook participant payload when present. - Auto-promotes lease to `ACTIVE` on completed envelope (idempotent), writing lease history and metadata flag (`leasePromotedAt`). - Reminder engine upgraded to milestone cadence + backoff: - Milestones (default `24h,4h` before due), max reminders, exponential back",
+      "recallCount": 4,
+      "dailyCount": 0,
+      "totalScore": 2.3270399225231833,
+      "maxScore": 0.6419424915432159,
+      "firstRecalledAt": "2026-04-12T12:51:18.877Z",
+      "lastRecalledAt": "2026-04-12T23:13:17.945Z",
+      "queryHashes": [
+        "2ab519ef7f67",
+        "5ce3c26f1e5c",
+        "7127c5bd6885",
+        "e79a08de13ad"
+      ],
+      "recallDays": [
+        "2026-04-12",
+        "2026-04-13"
+      ],
+      "conceptTags": [
+        "e-signature",
+        "pre-send",
+        "merge-field",
+        "sent/delivered/completed/etc",
+        "auto-promotes",
+        "creates",
+        "draft",
+        "lease"
+      ]
+    },
+    "memory:memory/2026-04-12.md:1:35": {
+      "key": "memory:memory/2026-04-12.md:1:35",
+      "path": "memory/2026-04-12.md",
+      "startLine": 1,
+      "endLine": 35,
+      "source": "memory",
+      "snippet": "# 2026-04-12 ## Session continuation snapshot Focus narrowed to: - `pms-master/tenant_portal_backend` - `keyring-os` Completed today: - Cloned `pms-master` and `keyring-os` into workspace - Inspected both repos at structure/manifests level - Produced architecture map + API/frontend integration map + gap analysis - Wrote handoff report: - `reports/KEYRING_OS_BACKEND_INTEGRATION_MAP_2026-04-12.md` - Built execution-ready contract matrix for top surfaces: - `reports/KEYRING_OS_CONTRACT_MATRIX_2026-04-12.md` Key findings: - `tenant_portal_backend` is the operational core, a large modular NestJS monolith - `keyring-os` is the newer Next.js/Turborepo frontend layer with admin + tenant apps",
+      "recallCount": 8,
+      "dailyCount": 0,
+      "totalScore": 5.059132095224205,
+      "maxScore": 0.7415105851036133,
+      "firstRecalledAt": "2026-04-12T12:51:18.877Z",
+      "lastRecalledAt": "2026-04-12T21:06:11.864Z",
+      "queryHashes": [
+        "2ab519ef7f67",
+        "da46097604d2",
+        "0c2e2601f605",
+        "19af0f7a1d76",
+        "093bd9e05a94",
+        "a74b1a664b32",
+        "165abf32d4d5",
+        "adfe4f6e7c5b"
+      ],
+      "recallDays": [
+        "2026-04-12",
+        "2026-04-13"
+      ],
+      "conceptTags": [
+        "pms-master/tenant-portal-backend",
+        "keyring-os",
+        "pms-master",
+        "structure/manifests",
+        "api/frontend",
+        "execution-ready",
+        "tenant-portal-backend",
+        "next.js/turborepo"
+      ]
+    },
+    "memory:memory/2026-04-05.md:76:91": {
+      "key": "memory:memory/2026-04-05.md:76:91",
+      "path": "memory/2026-04-05.md",
+      "startLine": 76,
+      "endLine": 91,
+      "source": "memory",
+      "snippet": "- Workspace bootstrap completed: BOOTSTRAP.md deleted; git repository initialized in /data/.openclaw/workspace; branch renamed to main; git identity configured locally (jholt1988 / jordanh316@gmail.com). - Reporting preference locked: daily Property-Pulse day-to-day ops report at 8:00 PM America/Chicago with dual output (chat + workspace file). Cron job created: \"Daily Property-Pulse Ops Report (8:00 PM US Central)\". - Scope correction captured: user shifted from manager/admin reporting to day-to-day operations reporting for pms-master/property-pulse. - User-story recovery lane activated from memory history only; A-series closure queue established for A-03, A-06, A-07, A-09, A-10, A-11. - Se",
+      "recallCount": 6,
+      "dailyCount": 0,
+      "totalScore": 3.8462966215953305,
+      "maxScore": 0.7188068913230599,
+      "firstRecalledAt": "2026-04-12T13:41:18.595Z",
+      "lastRecalledAt": "2026-04-12T23:13:17.945Z",
+      "queryHashes": [
+        "0c2e2601f605",
+        "093bd9e05a94",
+        "a74b1a664b32",
+        "878e224a5c39",
+        "adfe4f6e7c5b",
+        "e79a08de13ad"
+      ],
+      "recallDays": [
+        "2026-04-12",
+        "2026-04-13"
+      ],
+      "conceptTags": [
+        "bootstrap.md",
+        "openclaw/workspace",
+        "gmail.com",
+        "property-pulse",
+        "day-to-day",
+        "america/chicago",
+        "manager/admin",
+        "pms-master/property-pulse"
+      ]
+    },
+    "memory:memory/2026-04-05.md:65:77": {
+      "key": "memory:memory/2026-04-05.md:65:77",
+      "path": "memory/2026-04-05.md",
+      "startLine": 65,
+      "endLine": 77,
+      "source": "memory",
+      "snippet": "- User repeatedly requested rapid incremental execution with \"proceed\"; accepted direct implementation, validation, commit, and push cycles without lengthy planning overhead. - User clarified reporting focus: day-to-day operations reports for pms-master/property-pulse (de-prioritize manager/admin strategic framing for now). - Set recurring daily reminder/report trigger at 8:00 PM America/Chicago for Property-Pulse day-to-day ops report (chat + workspace file outputs). - User requested to revisit earlier user stories tasks next. - Built memory-only recovery backlog for user stories with focus on A-series manual UX closure (A-03, A-06, A-07, A-09, A-10, A-11). File: reports/user-stories-rec",
+      "recallCount": 5,
+      "dailyCount": 0,
+      "totalScore": 2.79107518469362,
+      "maxScore": 0.7019232438480124,
+      "firstRecalledAt": "2026-04-12T13:41:18.595Z",
+      "lastRecalledAt": "2026-04-12T23:13:17.945Z",
+      "queryHashes": [
+        "0c2e2601f605",
+        "19af0f7a1d76",
+        "878e224a5c39",
+        "e5917de2db40",
+        "e79a08de13ad"
+      ],
+      "recallDays": [
+        "2026-04-12",
+        "2026-04-13"
+      ],
+      "conceptTags": [
+        "day-to-day",
+        "pms-master/property-pulse",
+        "de-prioritize",
+        "manager/admin",
+        "reminder/report",
+        "america/chicago",
+        "property-pulse",
+        "memory-only"
+      ]
+    },
+    "memory:memory/2026-04-05.md:87:102": {
+      "key": "memory:memory/2026-04-05.md:87:102",
+      "path": "memory/2026-04-05.md",
+      "startLine": 87,
+      "endLine": 102,
+      "source": "memory",
+      "snippet": "- A-06 status: PASS. - Implemented Option A: lease-linked tenant documents surfaced directly in My Lease (without opening tenant /documents route). - Evidence captured under reports/evidence/A-06. - A-07 status: PASS. - Full in-UI tenant maintenance create + photo upload flow verified; PM queue/detail photo visibility verified. - Evidence captured under reports/evidence/A-07. - A-09 status: PARTIAL. - Attachment support added to active shared messaging page (composer input + attachment rendering). - Tenant-side send-with-attachment and audit metadata logging verified. - Remaining blocker: PM inbox did not surface new thread deterministically in automation run; PM-side UI attach",
+      "recallCount": 5,
+      "dailyCount": 0,
+      "totalScore": 3.499147753699741,
+      "maxScore": 0.7330305825986335,
+      "firstRecalledAt": "2026-04-12T20:27:18.507Z",
+      "lastRecalledAt": "2026-04-12T22:29:58.832Z",
+      "queryHashes": [
+        "5ce3c26f1e5c",
+        "165abf32d4d5",
+        "74b4ad477ee8",
+        "57fb889ae506",
+        "b710390084f2"
+      ],
+      "recallDays": [
+        "2026-04-13"
+      ],
+      "conceptTags": [
+        "a-06",
+        "lease-linked",
+        "reports/evidence/a-06",
+        "a-07",
+        "in-ui",
+        "queue/detail",
+        "reports/evidence/a-07",
+        "a-09"
+      ]
+    },
+    "memory:memory/2026-04-05.md:99:106": {
+      "key": "memory:memory/2026-04-05.md:99:106",
+      "path": "memory/2026-04-05.md",
+      "startLine": 99,
+      "endLine": 106,
+      "source": "memory",
+      "snippet": "- Closed A-09 to PASS for property-pulse: fixed backend messaging overfilter in participant checks/listing, verified tenant->PM thread visibility with attachment rendering on both sides, and confirmed message metadata attachments persisted for auditability. - Closed A-10 to PASS: verified owner minimum constraints (propertyId required on create, notes allowed, status/assignment blocked for owner org role), with UI list/detail evidence and recording under reports/evidence/A-10. - Closed A-11 to PASS: verified mobile-first tenant inspection draft persistence/restoration (localStorage key tenant-inspection-draft:<inspectionId>, restore notice banner, dismiss flow) with iPhone viewport evidenc",
+      "recallCount": 2,
+      "dailyCount": 0,
+      "totalScore": 1.311404317193459,
+      "maxScore": 0.6706702910248689,
+      "firstRecalledAt": "2026-04-12T20:38:00.347Z",
+      "lastRecalledAt": "2026-04-12T22:29:58.832Z",
+      "queryHashes": [
+        "e5917de2db40",
+        "b710390084f2"
+      ],
+      "recallDays": [
+        "2026-04-13"
+      ],
+      "conceptTags": [
+        "a-09",
+        "property-pulse",
+        "checks/listing",
+        "a-10",
+        "status/assignment",
+        "list/detail",
+        "reports/evidence/a-10",
+        "a-11"
+      ]
+    },
+    "memory:memory/2026-04-05.md:24:48": {
+      "key": "memory:memory/2026-04-05.md:24:48",
+      "path": "memory/2026-04-05.md",
+      "startLine": 24,
+      "endLine": 48,
+      "source": "memory",
+      "snippet": "- `npm run ledger:backfill` (idempotent historical backfill) - `npm run ledger:reconcile` (dry run) - `npm run ledger:reconcile:apply` (repair legacy lease balances from ledger truth) - Ran migration/backfill/reconcile in environment; fixed a real mismatch where lease balance was 0 but ledger truth was 810000 cents. ### Leasing / applications delivered - Rental application intake hardening: - Required legal accepts + verification authorizations. - Required uploads and minimum income/employment completeness checks. - Persisted compliance evidence fields on application record. - Screening/review hardening: - Added structured denial reason codes and required denial reason enforce",
+      "recallCount": 4,
+      "dailyCount": 0,
+      "totalScore": 2.6467507052584818,
+      "maxScore": 0.736678383680832,
+      "firstRecalledAt": "2026-04-12T20:51:59.275Z",
+      "lastRecalledAt": "2026-04-12T22:46:07.735Z",
+      "queryHashes": [
+        "e0d845b4fe09",
+        "adfe4f6e7c5b",
+        "b710390084f2",
+        "7127c5bd6885"
+      ],
+      "recallDays": [
+        "2026-04-13"
+      ],
+      "conceptTags": [
+        "migration/backfill/reconcile",
+        "income/employment",
+        "screening/review",
+        "npm",
+        "run",
+        "ledger:backfill",
+        "idempotent",
+        "historical"
+      ]
+    }
+  }
+}

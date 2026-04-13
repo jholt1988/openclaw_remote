@@ -1,0 +1,37 @@
+{
+  "version": 1,
+  "skills": {
+    "self-improving-proactive-agent": {
+      "version": "1.0.0",
+      "installedAt": 1776016891412
+    },
+    "proactivity": {
+      "version": "1.0.1",
+      "installedAt": 1776018075566
+    },
+    "prompt-engineering-expert": {
+      "version": "1.0.0",
+      "installedAt": 1776018211739
+    },
+    "using-superpowers": {
+      "version": "0.1.0",
+      "installedAt": 1776023415558
+    },
+    "superpowers-writing-plans": {
+      "version": "1.0.1",
+      "installedAt": 1776023514665
+    },
+    "superpowers-overview": {
+      "version": "1.2.0",
+      "installedAt": 1776023532922
+    },
+    "superpowers-brainstorming": {
+      "version": "1.0.0",
+      "installedAt": 1776023549826
+    },
+    "superdesign": {
+      "version": "1.0.0",
+      "installedAt": 1776023724092
+    }
+  }
+}
