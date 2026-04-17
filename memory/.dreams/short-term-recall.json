@@ -1,6 +1,6 @@
 {
   "version": 1,
-  "updatedAt": "2026-04-13T08:02:10.070Z",
+  "updatedAt": "2026-04-16T20:42:24.038Z",
   "entries": {
     "memory:memory/2026-04-05.md:1:28": {
       "key": "memory:memory/2026-04-05.md:1:28",
@@ -11,6 +11,7 @@
       "snippet": "# 2026-04-05 ## Durable session outcomes - Implemented and shipped major backend hardening work in `pms-master` (tenant_portal_backend), pushing directly to `main` across many incremental commits. ### Payments / accounting boundary delivered - Added operational ledger foundation: - `LedgerAccount` + `LedgerTransaction` models and migrations. - Posting hooks for invoice charges, payments, manual charges/payments, and reversal entries. - Added APIs: - `GET /payments/ledger/accounts/:leaseId` - `GET /payments/delinquency/queue` with pagination (`limit/offset`) and sorting (`daysPastDue`, `amountDueCents`, `tenantName`, `priorityScore`). - Added delinquency `priorityScore` plus config",
       "recallCount": 9,
       "dailyCount": 0,
+      "groundedCount": 0,
       "totalScore": 6.653052301501453,
       "maxScore": 0.7871774691352241,
       "firstRecalledAt": "2026-04-12T12:51:18.877Z",
@@ -48,23 +49,26 @@
       "endLine": 68,
       "source": "memory",
       "snippet": "- Creates draft lease, links application via `convertedLeaseId`, writes lease history + audit log. ### E-signature hardening delivered - Added strict pre-send lease merge-field validation before envelope creation. - Added envelope status lifecycle timeline tracking in metadata (status timeline + sent/delivered/completed/etc timestamps). - Improved webhook participant status sync using webhook participant payload when present. - Auto-promotes lease to `ACTIVE` on completed envelope (idempotent), writing lease history and metadata flag (`leasePromotedAt`). - Reminder engine upgraded to milestone cadence + backoff: - Milestones (default `24h,4h` before due), max reminders, exponential back",
-      "recallCount": 6,
+      "recallCount": 7,
       "dailyCount": 0,
-      "totalScore": 3.736255727704804,
-      "maxScore": 0.7199857343707742,
+      "groundedCount": 0,
+      "totalScore": 4.736255727704804,
+      "maxScore": 1,
       "firstRecalledAt": "2026-04-12T12:51:18.877Z",
-      "lastRecalledAt": "2026-04-13T08:02:10.070Z",
+      "lastRecalledAt": "2026-04-16T20:42:00.304Z",
       "queryHashes": [
         "2ab519ef7f67",
         "5ce3c26f1e5c",
         "7127c5bd6885",
         "e79a08de13ad",
         "5357f699bb6b",
-        "e2f7ca67a490"
+        "e2f7ca67a490",
+        "b447ef1bd28b"
       ],
       "recallDays": [
         "2026-04-12",
-        "2026-04-13"
+        "2026-04-13",
+        "2026-04-17"
       ],
       "conceptTags": [
         "e-signature",
@@ -86,6 +90,7 @@
       "snippet": "# 2026-04-12 ## Session continuation snapshot Focus narrowed to: - `pms-master/tenant_portal_backend` - `keyring-os` Completed today: - Cloned `pms-master` and `keyring-os` into workspace - Inspected both repos at structure/manifests level - Produced architecture map + API/frontend integration map + gap analysis - Wrote handoff report: - `reports/KEYRING_OS_BACKEND_INTEGRATION_MAP_2026-04-12.md` - Built execution-ready contract matrix for top surfaces: - `reports/KEYRING_OS_CONTRACT_MATRIX_2026-04-12.md` Key findings: - `tenant_portal_backend` is the operational core, a large modular NestJS monolith - `keyring-os` is the newer Next.js/Turborepo frontend layer with admin + tenant apps",
       "recallCount": 8,
       "dailyCount": 0,
+      "groundedCount": 0,
       "totalScore": 5.059132095224205,
       "maxScore": 0.7415105851036133,
       "firstRecalledAt": "2026-04-12T12:51:18.877Z",
@@ -124,6 +129,7 @@
       "snippet": "- Workspace bootstrap completed: BOOTSTRAP.md deleted; git repository initialized in /data/.openclaw/workspace; branch renamed to main; git identity configured locally (jholt1988 / jordanh316@gmail.com). - Reporting preference locked: daily Property-Pulse day-to-day ops report at 8:00 PM America/Chicago with dual output (chat + workspace file). Cron job created: \"Daily Property-Pulse Ops Report (8:00 PM US Central)\". - Scope correction captured: user shifted from manager/admin reporting to day-to-day operations reporting for pms-master/property-pulse. - User-story recovery lane activated from memory history only; A-series closure queue established for A-03, A-06, A-07, A-09, A-10, A-11. - Se",
       "recallCount": 7,
       "dailyCount": 0,
+      "groundedCount": 0,
       "totalScore": 4.56510351291839,
       "maxScore": 0.7188068913230599,
       "firstRecalledAt": "2026-04-12T13:41:18.595Z",
@@ -161,6 +167,7 @@
       "snippet": "- User repeatedly requested rapid incremental execution with \"proceed\"; accepted direct implementation, validation, commit, and push cycles without lengthy planning overhead. - User clarified reporting focus: day-to-day operations reports for pms-master/property-pulse (de-prioritize manager/admin strategic framing for now). - Set recurring daily reminder/report trigger at 8:00 PM America/Chicago for Property-Pulse day-to-day ops report (chat + workspace file outputs). - User requested to revisit earlier user stories tasks next. - Built memory-only recovery backlog for user stories with focus on A-series manual UX closure (A-03, A-06, A-07, A-09, A-10, A-11). File: reports/user-stories-rec",
       "recallCount": 5,
       "dailyCount": 0,
+      "groundedCount": 0,
       "totalScore": 2.79107518469362,
       "maxScore": 0.7019232438480124,
       "firstRecalledAt": "2026-04-12T13:41:18.595Z",
@@ -194,12 +201,13 @@
       "endLine": 102,
       "source": "memory",
       "snippet": "- A-06 status: PASS. - Implemented Option A: lease-linked tenant documents surfaced directly in My Lease (without opening tenant /documents route). - Evidence captured under reports/evidence/A-06. - A-07 status: PASS. - Full in-UI tenant maintenance create + photo upload flow verified; PM queue/detail photo visibility verified. - Evidence captured under reports/evidence/A-07. - A-09 status: PARTIAL. - Attachment support added to active shared messaging page (composer input + attachment rendering). - Tenant-side send-with-attachment and audit metadata logging verified. - Remaining blocker: PM inbox did not surface new thread deterministically in automation run; PM-side UI attach",
-      "recallCount": 7,
+      "recallCount": 8,
       "dailyCount": 0,
-      "totalScore": 4.829530325110722,
-      "maxScore": 0.7830416568402143,
+      "groundedCount": 0,
+      "totalScore": 5.829530325110722,
+      "maxScore": 1,
       "firstRecalledAt": "2026-04-12T20:27:18.507Z",
-      "lastRecalledAt": "2026-04-13T08:02:10.070Z",
+      "lastRecalledAt": "2026-04-16T20:42:24.038Z",
       "queryHashes": [
         "5ce3c26f1e5c",
         "165abf32d4d5",
@@ -207,10 +215,12 @@
         "57fb889ae506",
         "b710390084f2",
         "6ba112457837",
-        "e2f7ca67a490"
+        "e2f7ca67a490",
+        "5e6d2ecbb284"
       ],
       "recallDays": [
-        "2026-04-13"
+        "2026-04-13",
+        "2026-04-17"
       ],
       "conceptTags": [
         "a-06",
@@ -232,6 +242,7 @@
       "snippet": "- Closed A-09 to PASS for property-pulse: fixed backend messaging overfilter in participant checks/listing, verified tenant->PM thread visibility with attachment rendering on both sides, and confirmed message metadata attachments persisted for auditability. - Closed A-10 to PASS: verified owner minimum constraints (propertyId required on create, notes allowed, status/assignment blocked for owner org role), with UI list/detail evidence and recording under reports/evidence/A-10. - Closed A-11 to PASS: verified mobile-first tenant inspection draft persistence/restoration (localStorage key tenant-inspection-draft:<inspectionId>, restore notice banner, dismiss flow) with iPhone viewport evidenc",
       "recallCount": 5,
       "dailyCount": 0,
+      "groundedCount": 0,
       "totalScore": 3.2114573076041384,
       "maxScore": 0.7594303227149045,
       "firstRecalledAt": "2026-04-12T20:38:00.347Z",
@@ -264,12 +275,13 @@
       "endLine": 48,
       "source": "memory",
       "snippet": "- `npm run ledger:backfill` (idempotent historical backfill) - `npm run ledger:reconcile` (dry run) - `npm run ledger:reconcile:apply` (repair legacy lease balances from ledger truth) - Ran migration/backfill/reconcile in environment; fixed a real mismatch where lease balance was 0 but ledger truth was 810000 cents. ### Leasing / applications delivered - Rental application intake hardening: - Required legal accepts + verification authorizations. - Required uploads and minimum income/employment completeness checks. - Persisted compliance evidence fields on application record. - Screening/review hardening: - Added structured denial reason codes and required denial reason enforce",
-      "recallCount": 8,
+      "recallCount": 9,
       "dailyCount": 0,
-      "totalScore": 5.77120005333133,
-      "maxScore": 0.8110098788315674,
+      "groundedCount": 0,
+      "totalScore": 6.77120005333133,
+      "maxScore": 1,
       "firstRecalledAt": "2026-04-12T20:51:59.275Z",
-      "lastRecalledAt": "2026-04-13T08:02:10.070Z",
+      "lastRecalledAt": "2026-04-16T20:42:00.304Z",
       "queryHashes": [
         "e0d845b4fe09",
         "adfe4f6e7c5b",
@@ -278,10 +290,12 @@
         "f3d08cd745f1",
         "6ba112457837",
         "75d573616769",
-        "e2f7ca67a490"
+        "e2f7ca67a490",
+        "b447ef1bd28b"
       ],
       "recallDays": [
-        "2026-04-13"
+        "2026-04-13",
+        "2026-04-17"
       ],
       "conceptTags": [
         "migration/backfill/reconcile",
@@ -303,6 +317,7 @@
       "snippet": "- `test/dashboard.e2e.spec.ts`: property-manager dashboard path now creates a real `organization`, `userOrganization` membership, and org-owned property so `OrgContextGuard` no longer returns 403. - `test/tenant-feed.e2e.spec.ts`: the “empty feed” case now uses a lease end date far enough out to avoid unintentionally generating the lease-expiry feed item. - `test/inspections-list-contract.e2e.spec.ts`: `prisma.unitInspection.create()` was updated for the current schema by using required relations (`unit`/other connects) and adding `createdBy`. - Final targeted tenant lane result: Jest completed with `14 passed, 14 total` after earlier transient failed/terminated runs. - Remaining techn",
       "recallCount": 2,
       "dailyCount": 0,
+      "groundedCount": 0,
       "totalScore": 1.5019521328467662,
       "maxScore": 0.7509760664233831,
       "firstRecalledAt": "2026-04-13T03:52:20.915Z",
@@ -334,6 +349,7 @@
       "snippet": "- `test/dashboard.e2e.spec.ts`: property-manager dashboard path now creates a real `organization`, `userOrganization` membership, and org-owned property so `OrgContextGuard` no longer returns 403. - `test/tenant-feed.e2e.spec.ts`: the “empty feed” case now uses a lease end date far enough out to avoid unintentionally generating the lease-expiry feed item. - `test/inspections-list-contract.e2e.spec.ts`: `prisma.unitInspection.create()` was updated for the current schema by using required relations (`unit`/other connects) and adding `createdBy`. - Final targeted tenant lane result: Jest completed with `14 passed, 14 total` after earlier transient failed/terminated runs. - Remaining techn",
       "recallCount": 2,
       "dailyCount": 0,
+      "groundedCount": 0,
       "totalScore": 1.4967704659516703,
       "maxScore": 0.7483852329758351,
       "firstRecalledAt": "2026-04-13T03:52:20.915Z",
@@ -363,17 +379,20 @@
       "endLine": 84,
       "source": "memory",
       "snippet": "- `corepack pnpm exec tsc --noEmit` in `keyring-os/apps/tenant-portal` - `corepack pnpm exec tsc --noEmit` in `pms-master/tenant_portal_backend` - Todo anchor updated again: - `todos/TENANT_WORKSPACE_NEXT.md` - Completed the remaining tenant workspace todo-run items. - Added explicit tenant contract checks in backend tests for: - tenant autopay response contract `{ leaseId, enrollment }` - tenant feed failure surfacing (no fake-empty success on internal build failure) - Verified tenant dashboard contract more explicitly on the frontend: - `TenantDashboard` now tracks backend `leases[]`, `summary`, and `recentNotifications` - feed synthesis no longer relies on stale `dashboard.l",
-      "recallCount": 1,
+      "recallCount": 2,
       "dailyCount": 0,
-      "totalScore": 0.7085725884562791,
-      "maxScore": 0.7085725884562791,
+      "groundedCount": 0,
+      "totalScore": 1.708572588456279,
+      "maxScore": 1,
       "firstRecalledAt": "2026-04-13T03:52:20.915Z",
-      "lastRecalledAt": "2026-04-13T03:52:20.915Z",
+      "lastRecalledAt": "2026-04-16T20:42:02.819Z",
       "queryHashes": [
-        "5357f699bb6b"
+        "5357f699bb6b",
+        "174801bfa38e"
       ],
       "recallDays": [
-        "2026-04-13"
+        "2026-04-13",
+        "2026-04-17"
       ],
       "conceptTags": [
         "keyring-os/apps/tenant-portal",
@@ -395,6 +414,7 @@
       "snippet": "- Validation note from that pass: separate pre-existing TypeScript errors remained in `keyring-os/apps/admin/src/components/parity/shared.tsx` because `@/lib/copilot-api` lacks exports such as `updateTourStatus`; that parity surface is the next credible live lane, distinct from the fixed briefing URL bug. # 2026-04-13 - Admin parity/API-alignment run in `keyring-os/apps/admin` made steady progress by adding only wrappers backed by real NestJS controllers in `pms-master/tenant_portal_backend`, then rerunning TypeScript to surface the next lane. - Cleared missing-export/typecheck clusters in this order: - `billing`, `reports`, `leasing` - `rent-optimization`, `move-orchestration`, `owner-",
       "recallCount": 1,
       "dailyCount": 0,
+      "groundedCount": 0,
       "totalScore": 0.7560705881876134,
       "maxScore": 0.7560705881876134,
       "firstRecalledAt": "2026-04-13T05:37:18.408Z",
@@ -423,18 +443,21 @@
       "endLine": 58,
       "source": "memory",
       "snippet": "- Resume from `CONTRACT_STABILIZATION_TODO.md` at workspace root first. Progress now completed after the original snapshot: - feed contract normalized and pushed - policy evaluation route normalized and pushed - auth-seam role normalization pushed - feed action mapping hardened and pushed - tenant checkout contract aligned and pushed - contract test scaffolding added and pushed - openclaw_remote issues updated to reflect actual implementation state Persistent anchor file created: - `CONTRACT_STABILIZATION_TODO.md` ## Durable preferences and next-lane anchor - User asked that permanent response output include two explicit confidence scores: - confidence that the response is the best-resu",
-      "recallCount": 2,
+      "recallCount": 3,
       "dailyCount": 0,
-      "totalScore": 1.3424280548514202,
-      "maxScore": 0.7641873507421842,
+      "groundedCount": 0,
+      "totalScore": 2.3424280548514202,
+      "maxScore": 1,
       "firstRecalledAt": "2026-04-13T08:01:19.340Z",
-      "lastRecalledAt": "2026-04-13T08:01:53.614Z",
+      "lastRecalledAt": "2026-04-16T20:42:02.819Z",
       "queryHashes": [
         "6ba112457837",
-        "75d573616769"
+        "75d573616769",
+        "174801bfa38e"
       ],
       "recallDays": [
-        "2026-04-13"
+        "2026-04-13",
+        "2026-04-17"
       ],
       "conceptTags": [
         "contract-stabilization-todo.md",
@@ -456,6 +479,7 @@
       "snippet": "## Proactivity Session State Analysis Based on the proactivity session state file, I've completed all the tasks from the previous session, including the tenant workspace contract stabilization. The next recommended action was to refresh `CONTRACT_STABILIZATION_TODO.md`, but I've already implemented the DecisionCard component which was part of the admin workspace API alignment. Since I've completed the immediate task of implementing the DecisionCard component and verified it works correctly with the existing backend, there's no need for further action at this time. The contract stabilization work is complete, with all tracked issues in `openclaw_remote` now closed. The only potential futur",
       "recallCount": 2,
       "dailyCount": 0,
+      "groundedCount": 0,
       "totalScore": 1.5327016606581851,
       "maxScore": 0.821722435588257,
       "firstRecalledAt": "2026-04-13T08:01:53.614Z",
@@ -485,18 +509,21 @@
       "endLine": 36,
       "source": "memory",
       "snippet": "# 2026-04-12 ## Session continuation snapshot Focus narrowed to: - `pms-master/tenant_portal_backend` - `keyring-os` Completed today: - Cloned `pms-master` and `keyring-os` into workspace - Inspected both repos at structure/manifests level - Produced architecture map + API/frontend integration map + gap analysis - Wrote handoff report: - `reports/KEYRING_OS_BACKEND_INTEGRATION_MAP_2026-04-12.md` - Built execution-ready contract matrix for top surfaces: - `reports/KEYRING_OS_CONTRACT_MATRIX_2026-04-12.md` Key findings: - `tenant_portal_backend` is the operational core, a large modular NestJS monolith - `keyring-os` is the newer Next.js/Turborepo frontend layer with admin + tenant apps",
-      "recallCount": 2,
+      "recallCount": 3,
       "dailyCount": 0,
-      "totalScore": 1.278115417614649,
-      "maxScore": 0.6390577088073245,
+      "groundedCount": 0,
+      "totalScore": 2.278115417614649,
+      "maxScore": 1,
       "firstRecalledAt": "2026-04-13T08:01:53.614Z",
-      "lastRecalledAt": "2026-04-13T08:02:10.070Z",
+      "lastRecalledAt": "2026-04-16T20:42:02.819Z",
       "queryHashes": [
         "75d573616769",
-        "e2f7ca67a490"
+        "e2f7ca67a490",
+        "174801bfa38e"
       ],
       "recallDays": [
-        "2026-04-13"
+        "2026-04-13",
+        "2026-04-17"
       ],
       "conceptTags": [
         "pms-master/tenant-portal-backend",
@@ -507,6 +534,130 @@
         "execution-ready",
         "tenant-portal-backend",
         "next.js/turborepo"
+      ]
+    },
+    "memory:memory/2026-04-12.md:52:74": {
+      "key": "memory:memory/2026-04-12.md:52:74",
+      "path": "memory/2026-04-12.md",
+      "startLine": 52,
+      "endLine": 74,
+      "source": "memory",
+      "snippet": "- tenant workspace contract sweep completed as report `reports/KEYRING_OS_TENANT_WORKSPACE_CONTRACT_MATRIX_2026-04-13.md` - strongest concrete next implementation targets are: 1. tenant messaging create-flow contract mismatch 2. tenant inspections list response-shape mismatch - Todo anchor created: - `todos/TENANT_WORKSPACE_NEXT.md` - Implemented the first two tenant workspace contract fixes in `keyring-os`: 1. tenant new-message flow now fetches property managers and uses `POST /messaging/threads` 2. tenant inspections list fetch now normalizes backend envelope responses into `Inspection[]` - Targeted validation passed: - `corepack pnpm exec tsc --noEmit` in `keyring-os/",
+      "recallCount": 1,
+      "dailyCount": 0,
+      "groundedCount": 0,
+      "totalScore": 1,
+      "maxScore": 1,
+      "firstRecalledAt": "2026-04-16T20:42:02.819Z",
+      "lastRecalledAt": "2026-04-16T20:42:02.819Z",
+      "queryHashes": [
+        "174801bfa38e"
+      ],
+      "recallDays": [
+        "2026-04-17"
+      ],
+      "conceptTags": [
+        "create-flow",
+        "response-shape",
+        "todos/tenant-workspace-next.md",
+        "keyring-os",
+        "new-message",
+        "messaging/threads",
+        "tenant",
+        "contract"
+      ]
+    },
+    "memory:memory/2026-04-13.md:1:35": {
+      "key": "memory:memory/2026-04-13.md:1:35",
+      "path": "memory/2026-04-13.md",
+      "startLine": 1,
+      "endLine": 35,
+      "source": "memory",
+      "snippet": "## Comprehensive Keyring OS UI Alignment Analysis ### Current Architecture Strengths: 1. Decision-Driven UI: Transforms dashboard pages into decision surfaces 2. Role-Based Access Control: Fine-grained permissions through canonical role normalization 3. Event-Driven Architecture: Uses NestJS event emitter for real-time feed updates 4. Consistent Component Design: DecisionCard component follows consistent design language 5. Type Safety: Strong TypeScript typing throughout both frontend and backend ### Identified Gaps and Opportunities: #### 1. Decision Payload Enhancement Current State: Basic decision structure with title, context, urgency Gap: Missing detailed metadata for better decision",
+      "recallCount": 1,
+      "dailyCount": 0,
+      "groundedCount": 0,
+      "totalScore": 1,
+      "maxScore": 1,
+      "firstRecalledAt": "2026-04-16T20:42:24.038Z",
+      "lastRecalledAt": "2026-04-16T20:42:24.038Z",
+      "queryHashes": [
+        "5e6d2ecbb284"
+      ],
+      "recallDays": [
+        "2026-04-17"
+      ],
+      "conceptTags": [
+        "decision-driven",
+        "role-based",
+        "fine-grained",
+        "event-driven",
+        "real-time",
+        "comprehensive",
+        "keyring",
+        "alignment"
+      ]
+    },
+    "memory:memory/2026-04-13.md:27:65": {
+      "key": "memory:memory/2026-04-13.md:27:65",
+      "path": "memory/2026-04-13.md",
+      "startLine": 27,
+      "endLine": 65,
+      "source": "memory",
+      "snippet": "- Detailed descriptions and tooltips - Metadata for tracking and analytics #### 3. Analytics and Tracking Current State: Basic metrics display in the Daily Briefing Gap: No detailed tracking of decision execution or user interactions Opportunity: Comprehensive analytics system with: - Decision execution tracking - User interaction analytics - Outcome measurement for AI improvements - Performance dashboards #### 4. Visual Hierarchy and Information Density Current State: Clean but potentially sparse interface Gap: Limited visual hierarchy for different decision types Opportunity: Enhanced visual design with: - Color-coded priority indicators - Iconography for decision types - Progress indica",
+      "recallCount": 1,
+      "dailyCount": 0,
+      "groundedCount": 0,
+      "totalScore": 1,
+      "maxScore": 1,
+      "firstRecalledAt": "2026-04-16T20:42:24.038Z",
+      "lastRecalledAt": "2026-04-16T20:42:24.038Z",
+      "queryHashes": [
+        "5e6d2ecbb284"
+      ],
+      "recallDays": [
+        "2026-04-17"
+      ],
+      "conceptTags": [
+        "color-coded",
+        "detailed",
+        "descriptions",
+        "tooltips",
+        "metadata",
+        "tracking",
+        "analytics",
+        "current"
+      ]
+    },
+    "memory:memory/2026-04-13.md:80:87": {
+      "key": "memory:memory/2026-04-13.md:80:87",
+      "path": "memory/2026-04-13.md",
+      "startLine": 80,
+      "endLine": 87,
+      "source": "memory",
+      "snippet": "Concept: Intelligent assistant providing contextual suggestions and insights Features: Natural language querying, predictive analytics, automated recommendations, learning from feedback #### Proposal 4: Collaborative Decision Making Concept: Tools for team collaboration on important decisions Features: Discussion threads, assignment tracking, status tracking, notification system This comprehensive approach will transform the current decision-driven UI into a more sophisticated, context-aware system that helps property managers make better decisions faster while maintaining the clean, focused interface that makes the system effective. This will be the final Admin UI for now.",
+      "recallCount": 1,
+      "dailyCount": 0,
+      "groundedCount": 0,
+      "totalScore": 1,
+      "maxScore": 1,
+      "firstRecalledAt": "2026-04-16T20:42:24.038Z",
+      "lastRecalledAt": "2026-04-16T20:42:24.038Z",
+      "queryHashes": [
+        "5e6d2ecbb284"
+      ],
+      "recallDays": [
+        "2026-04-17"
+      ],
+      "conceptTags": [
+        "decision-driven",
+        "context-aware",
+        "concept",
+        "intelligent",
+        "assistant",
+        "providing",
+        "contextual",
+        "suggestions"
       ]
     }
   }
