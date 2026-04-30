@@ -1,24 +1,25 @@
 # Proactivity Working Buffer
 
 ## Current Task
-Repo-wide validation drift cleanup after production-readiness feature/test coverage work.
+Minion-driven Keyring-OS readiness follow-up: admin warning cleanup + lease vacancy/document/signature coverage.
 
 ## Latest Verified State
-- Backend: `/data/.openclaw/workspace/pms-master/tenant_portal_backend`
-  - Pushed `32d38b7` — `Clean backend TypeScript drift`.
-  - `corepack pnpm exec tsc --noEmit --pretty false` passed with 0 errors.
+- Plan: `/data/.openclaw/workspace/docs/superpowers/plans/2026-05-01-keyring-os-next-readiness-slice.md`
 - Admin: `/data/.openclaw/workspace/keyring-os/apps/admin`
-  - Pushed `920fd9c` — `Clean admin ESLint blockers`.
-  - `corepack pnpm exec eslint .` reported 0 errors / 378 warnings.
-- Workspace tracking:
-  - Pushed `acacc78` — `Track validation drift cleanup`.
-- Current root status still has only pre-existing untracked daily memory files: `memory/2026-04-18.md`, `memory/2026-04-19.md`.
+  - Pushed `5c16f80` — `Reduce admin lint warnings`.
+  - `corepack pnpm exec eslint .` reports 0 errors / 269 warnings.
+  - Warning count reduced from 378 to 269; broad legacy `any` payloads were not fake-typed.
+- Backend: `/data/.openclaw/workspace/pms-master/tenant_portal_backend`
+  - Pushed `478813a` — `Cover lease vacancy document workflows`.
+  - `corepack pnpm exec tsc --noEmit --pretty false` passed.
+  - Lease Jest passed: 3 suites, 41 tests.
+- Tracking docs updated but root commit/push still needs completion at handoff moment.
 
 ## Immediate Next Steps
-1. Stand by unless Jordan asks to continue.
-2. Best next active engineering slice: reduce admin warnings in focused, behavior-safe areas or add another contract-critical coverage slice.
-3. Do not convert legacy/scaffold broad payloads into fake types just to silence warnings.
+1. Commit/push workspace tracking updates and submodule pointers.
+2. Verify final root status.
+3. Report concise completion with validation evidence.
 
 ## Confidence Levels
-- Best-result confidence: 95%
+- Best-result confidence: 96%
 - Non-hallucination confidence: 99%
