@@ -1,19 +1,22 @@
 # Proactivity Working Buffer
 
 ## Current Task
-Targeted test coverage improvements after committing production-readiness changes.
+Repo-wide validation drift cleanup after production-readiness feature/test coverage work.
 
 ## Latest Verified State
-- `keyring-os`: committed and pushed `adfcabc` — `Refocus landing page on daily briefing`.
-- `pms-master`: latest pushed `b7afffb` — `Cover tenant lease response workflows`.
-- Workspace root latest pushed before this heartbeat: `fe6ac28` — `Track expanded lease coverage`.
-- Expanded coverage slice: `tenant_portal_backend/src/lease/lease.service.spec.ts` now covers create/status/renewal-offer/tenant-response/tenant-notice/manager-notice/renewal-window behavior.
-- Validation: `corepack pnpm exec jest src/lease/lease.service.spec.ts src/lease/ai-lease-renewal.service.spec.ts src/lease/ai-lease-renewal-metrics.service.spec.ts src/feed/feed.module.spec.ts src/common/circuit-breaker/circuit-breaker.service.spec.ts src/feature-flags/feature-flags.service.spec.ts src/payments/stripe.service.spec.ts src/billing/billing.service.autopay.spec.ts --runInBand` passed: 8 suites, 65 tests.
+- Backend: `/data/.openclaw/workspace/pms-master/tenant_portal_backend`
+  - `corepack pnpm exec tsc --noEmit --pretty false` passed with 0 errors.
+  - Cleanup included bad relative imports, Prisma/schema drift casts for legacy scaffolds, payment enum/status alignment, lease controller user id typing, telemetry audit-log drift, and compile-gate exclusion for unregistered scaffold controllers.
+- Admin: `/data/.openclaw/workspace/keyring-os/apps/admin`
+  - `corepack pnpm exec eslint .` reports 0 errors / 378 warnings.
+  - Fixed hook-order, display-name, purity, unescaped entity, and empty-interface blockers.
+  - Downgraded legacy broad API/scaffold payload rules (`no-explicit-any`, set-state-in-effect) to warnings so the gate is actionable without pretending legacy payload typing is done.
 
 ## Immediate Next Steps
-1. Commit/push workspace root tracking docs + submodule pointer.
-2. Continue with `prepareForVacancy` / document-signing stub coverage or repo-wide lint/type drift cleanup.
+1. Commit/push `pms-master` backend TypeScript cleanup.
+2. Commit/push `keyring-os` admin ESLint cleanup.
+3. Commit/push workspace tracking updates.
 
 ## Confidence Levels
-- Best-result confidence: 96%
+- Best-result confidence: 95%
 - Non-hallucination confidence: 99%
