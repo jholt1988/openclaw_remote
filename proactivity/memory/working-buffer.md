@@ -16,12 +16,11 @@ Golden-path Keyring-OS production-readiness smoke follow-up after minion-driven 
   - Current pushed head remains `478813a` — `Cover lease vacancy document workflows`.
   - `corepack pnpm exec tsc --noEmit --pretty false` passed.
   - Golden-path targeted Jest passed: feed, leasing, lease, payments, Stripe, and billing autopay suites — 9 suites, 106 passed, 12 skipped.
-- Workspace tracking committed and pushed: root `a53599f` — `Track golden path smoke follow-up`.
+- Workspace tracking committed and pushed: root `0afa17f` — `Track admin SSR smoke cleanup`.
 - Final root status only shows pre-existing untracked daily memory files: `memory/2026-04-18.md`, `memory/2026-04-19.md`.
 
 ## Immediate Next Steps
-1. Commit/push workspace tracking for `keyring-os` submodule pointer and proactive state.
-2. Then choose focused admin warning slice 2 or convert lease document/signature stubs into real integration behavior if product scope is approved.
+1. Choose focused admin warning slice 2 or convert lease document/signature stubs into real integration behavior if product scope is approved.
 
 ## Confidence Levels
 - Best-result confidence: 95%
