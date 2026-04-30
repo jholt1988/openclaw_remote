@@ -1,6 +1,6 @@
 # Contract Stabilization TODO
 
-Last refreshed: 2026-04-30 21:37 Asia/Kuala_Lumpur
+Last refreshed: 2026-04-30 21:38 Asia/Kuala_Lumpur
 
 ## Repo Heads / Current Snapshot
 - workspace root: `eee963c` — Add blank printable rental application form
@@ -71,8 +71,8 @@ Last refreshed: 2026-04-30 21:37 Asia/Kuala_Lumpur
   - `FeedModule` now registers only canonical `FeedController` (`/api/feed` under global prefix)
   - legacy `api/v2/feed` controller is no longer registered, avoiding `/api/api/v2/feed` double-prefix exposure
 - [x] Review and implement test coverage improvements
-  - Added first direct `LeaseService` core workflow coverage for create/status/renewal-window behavior
-  - Targeted Jest passed for lease + readiness suites: 6 suites, 35 passed
+  - Added direct `LeaseService` core workflow coverage for create/status/renewal-offer/notice/renewal-window behavior
+  - Targeted Jest passed for lease + readiness suites: 8 suites, 61 passed
 
 ## Implementation Phase / Next Engineering Targets
 - [x] Fix broken test suites: dependency injection issues in `payments.service.spec.ts` and `leasing.service.spec.ts`
