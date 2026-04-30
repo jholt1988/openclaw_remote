@@ -3,7 +3,7 @@
 Last refreshed: 2026-05-01 03:55 Asia/Kuala_Lumpur
 
 ## Repo Heads / Current Snapshot
-- `keyring-os`: `2ab3fcb` — Fix admin smoke type breaks
+- `keyring-os`: `439f287` — Fix admin SSR smoke warnings
 - `pms-master`: `478813a` — Cover lease vacancy document workflows
 - workspace root: pending tracking commit for golden-path smoke follow-up
 - working tree status:
@@ -28,6 +28,7 @@ Last refreshed: 2026-05-01 03:55 Asia/Kuala_Lumpur
 - [x] Lease vacancy/document/signature coverage slice completed and pushed
 - [x] Execution plan saved: `docs/superpowers/plans/2026-05-01-keyring-os-next-readiness-slice.md`
 - [x] Product-level golden-path smoke pass completed for briefing/leasing/lease/payment-feed-adjacent/backend feed coverage
+- [x] Admin SSR prerender warning cleanup completed and pushed
 
 ## Validated Gates
 - [x] `keyring-os/packages/types`: `corepack pnpm --dir /data/.openclaw/workspace/keyring-os/packages/types typecheck`
@@ -42,7 +43,7 @@ Last refreshed: 2026-05-01 03:55 Asia/Kuala_Lumpur
 - [x] `keyring-os/apps/admin`: `corepack pnpm exec eslint .` completed with 0 errors / 269 warnings
 - [x] `tenant_portal_backend`: `corepack pnpm exec jest src/lease/lease.service.spec.ts src/lease/ai-lease-renewal.service.spec.ts src/lease/ai-lease-renewal-metrics.service.spec.ts --runInBand` passed: 3 suites, 41 tests
 - [x] `keyring-os/apps/admin`: smoke `corepack pnpm exec tsc --noEmit` passed after adding missing `zustand` dependency and fixing lease-abstraction bulk API call
-- [x] `keyring-os/apps/admin`: smoke `corepack pnpm exec next build` completed successfully; emitted existing SSR `location is not defined` prerender warnings but exited 0 and generated all 42 routes
+- [x] `keyring-os/apps/admin`: smoke `corepack pnpm exec next build` completed successfully after SSR cleanup; no `location is not defined` prerender warnings; all 42 routes generated
 - [x] `tenant_portal_backend`: golden-path targeted Jest passed: feed, leasing, lease, payments, Stripe, and billing autopay suites — 9 suites, 106 passed, 12 skipped
 
 ## Remaining Production Readiness Work
@@ -65,7 +66,7 @@ Last refreshed: 2026-05-01 03:55 Asia/Kuala_Lumpur
 - Lease vacancy/document/signature coverage verifies existing `prepareForVacancy` side effects and current document/signature stub contracts.
 
 ## Next Recommended Action
-Golden-path smoke pass is complete. Next recommended action: investigate the admin build-time SSR `location is not defined` warning source, then choose either focused admin warning slice 2 or convert lease document/signature stubs into real integration behavior if product scope is approved.
+Golden-path smoke pass and admin SSR warning cleanup are complete. Next recommended action: choose either focused admin warning slice 2 or convert lease document/signature stubs into real integration behavior if product scope is approved.
 
 ## Confidence Levels
 - Best-result confidence: 96%
