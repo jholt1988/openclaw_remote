@@ -5,15 +5,14 @@ Targeted test coverage improvements after committing production-readiness change
 
 ## Latest Verified State
 - `keyring-os`: committed and pushed `adfcabc` — `Refocus landing page on daily briefing`.
-- `pms-master`: committed and pushed `2a46f0c` — `Harden production readiness contracts`.
-- Workspace root: committed and pushed `da73fb2` — `Track production readiness follow-through`.
-- New coverage slice: `tenant_portal_backend/src/lease/lease.service.spec.ts` added and expanded.
-- Validation: `corepack pnpm exec jest src/lease/lease.service.spec.ts src/lease/ai-lease-renewal.service.spec.ts src/lease/ai-lease-renewal-metrics.service.spec.ts src/feed/feed.module.spec.ts src/common/circuit-breaker/circuit-breaker.service.spec.ts src/feature-flags/feature-flags.service.spec.ts src/payments/stripe.service.spec.ts src/billing/billing.service.autopay.spec.ts --runInBand` passed: 8 suites, 61 tests.
+- `pms-master`: latest pushed `b7afffb` — `Cover tenant lease response workflows`.
+- Workspace root latest pushed before this heartbeat: `fe6ac28` — `Track expanded lease coverage`.
+- Expanded coverage slice: `tenant_portal_backend/src/lease/lease.service.spec.ts` now covers create/status/renewal-offer/tenant-response/tenant-notice/manager-notice/renewal-window behavior.
+- Validation: `corepack pnpm exec jest src/lease/lease.service.spec.ts src/lease/ai-lease-renewal.service.spec.ts src/lease/ai-lease-renewal-metrics.service.spec.ts src/feed/feed.module.spec.ts src/common/circuit-breaker/circuit-breaker.service.spec.ts src/feature-flags/feature-flags.service.spec.ts src/payments/stripe.service.spec.ts src/billing/billing.service.autopay.spec.ts --runInBand` passed: 8 suites, 65 tests.
 
 ## Immediate Next Steps
-1. Commit/push the expanded lease service coverage in `pms-master`.
-2. Commit/push workspace root tracking docs + submodule pointer.
-3. Continue with tenant notice/respond-to-renewal coverage or repo-wide lint/type drift cleanup.
+1. Commit/push workspace root tracking docs + submodule pointer.
+2. Continue with `prepareForVacancy` / document-signing stub coverage or repo-wide lint/type drift cleanup.
 
 ## Confidence Levels
 - Best-result confidence: 96%
