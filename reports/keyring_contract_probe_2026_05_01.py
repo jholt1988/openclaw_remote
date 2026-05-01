@@ -16,6 +16,9 @@ def clean(p):
   p=p.strip()
   p=re.sub(r'\$\{[^}]+\}', ':param', p)
   p=p.split('?')[0]
+  # Template expressions appended directly to a path segment are usually query builders,
+  # e.g. `/reporting/rent-roll${buildQuery(...)}`. They should not create a route segment.
+  p=re.sub(r'(?<!/):param(?:\)\})?$', '', p)
   p=re.sub(r'//+','/',p)
   return p.rstrip('/') or '/'
 
@@ -33,7 +36,7 @@ for p in files(FR):
     if raw.startswith('http'): continue
     if raw.startswith('/'):
       front.append((templ(raw),p))
-  for m in re.finditer(r"fetch\s*\(\s*`\$\{[^}]+\}([^`$]+)",s):
+  for m in re.finditer(r"fetch\s*\(\s*`\$\{[^}]+\}([^`]*)`",s):
     raw=m.group(1)
     if raw.startswith('/'):
       front.append((templ(raw),p))
@@ -59,7 +62,8 @@ for p in files(BE):
     vals=re.findall(r"['\"]([^'\"]*)['\"]",arg) or ['']
     for c in ctrls:
       for v in vals:
-        path=clean('/'+c+'/'+v).replace(':id',':param').replace(':leaseId',':param').replace(':unitId',':param').replace(':propertyId',':param').replace(':paymentId',':param').replace(':envelopeId',':param').replace(':statementId',':param')
+        path=clean('/'+c+'/'+v)
+        path=re.sub(r':[A-Za-z_][A-Za-z0-9_]*', ':param', path)
         routes.append((path,meth,p))
 rpaths={r[0] for r in routes}
 
@@ -88,6 +92,7 @@ print('\n## Potential misses')
 miss=[]
 for fp,src in sorted(front):
   if fp.startswith('/api/auth/'): continue # Next proxy path
+  if '/app/api/v2/' in src or '/app/api/auth/' in src: continue # proxy internals construct backend URLs dynamically
   h=matched(fp)
   if not h:
     miss.append((fp,src))
